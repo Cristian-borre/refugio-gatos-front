@@ -28,16 +28,16 @@
       </thead>
       <tbody>
         <tr v-for="gato in gatos" :key="gato.id">
-          <td>{{ gato.nombre }}</td>
-          <td>{{ gato.edad }} años</td>
-          <td>{{ gato.raza }}</td>
-          <td>{{ gato.collar }}</td>
-          <td>
+          <td data-label="Nombre">{{ gato.nombre }}</td>
+          <td data-label="Edad">{{ gato.edad }} años</td>
+          <td data-label="Raza">{{ gato.raza }}</td>
+          <td data-label="Collar">{{ gato.collar }}</td>
+          <td data-label="Estado">
             <span :class="['estado', gato.estado.toLowerCase()]">
               {{ gato.estado }}
             </span>
           </td>
-          <td class="acciones">
+          <td data-label="Acciones" class="acciones">
             <button class="btn-editar" @click="abrirModalEditar(gato)">Editar</button>
             <button class="btn-eliminar" @click="eliminarGato(gato.id)">Eliminar</button>
           </td>
@@ -136,6 +136,7 @@ const abrirModalEditar = (gato: Gato) => {
 }
 
 const cerrarModal = () => {
+  gatoEditar.value = null
   modalVisible.value = false
 }
 

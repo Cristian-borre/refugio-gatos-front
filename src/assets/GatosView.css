@@ -1,3 +1,4 @@
+/* Estilos base - Desktop y tablets grandes */
 .container {
   max-width: 850px;
   margin: 3rem auto;
@@ -30,12 +31,13 @@
 
 .input-busqueda {
   flex: 1 1 220px;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   font-size: 1rem;
   border: 1.8px solid #ccc;
   border-radius: 8px;
   outline: none;
   transition: border-color 0.25s ease;
+  min-width: 200px;
 }
 
 .input-busqueda::placeholder {
@@ -44,18 +46,21 @@
 
 .input-busqueda:focus {
   border-color: #3b82f6;
-  box-shadow: 0 0 4px #3b82f6aa;
+  box-shadow: 0 0 6px #3b82f6aa;
 }
 
 button {
   background-color: #3b82f6;
   color: #fff;
-  padding: 0.5rem 1.2rem;
+  padding: 0.5rem 1.4rem;
   border: none;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  min-width: 110px;
+  user-select: none;
+  white-space: nowrap;
 }
 
 button:hover {
@@ -72,13 +77,13 @@ button:hover {
 .tabla-gatos {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0 8px;
+  border-spacing: 0 10px;
 }
 
 .tabla-gatos thead th {
   text-align: left;
-  font-weight: 600;
-  padding-bottom: 0.5rem;
+  font-weight: 700;
+  padding-bottom: 0.7rem;
   border-bottom: 2px solid #eee;
   color: #333;
   user-select: none;
@@ -87,23 +92,28 @@ button:hover {
 .tabla-gatos tbody tr {
   background: #fefefe;
   transition: background-color 0.2s;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
 }
 
 .tabla-gatos tbody tr:hover {
-  background: #f0f9ff;
+  background: #e6f0ff;
 }
 
 .tabla-gatos td {
-  padding: 0.7rem 1rem;
-  font-size: 0.95rem;
+  padding: 0.85rem 1.2rem;
+  font-size: 1rem;
   color: #444;
+  vertical-align: middle;
 }
 
 .acciones button {
   margin-right: 0.5rem;
-  padding: 0.3rem 0.7rem;
+  padding: 0.4rem 0.9rem;
   border-radius: 6px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  min-width: 80px;
+  white-space: nowrap;
 }
 
 .btn-editar {
@@ -125,13 +135,16 @@ button:hover {
 }
 
 .estado {
-  font-weight: 600;
-  font-size: 0.9rem;
-  padding: 0.3rem 0.7rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.35rem 0.9rem;
   border-radius: 9999px;
   color: #fff;
   text-transform: capitalize;
   user-select: none;
+  display: inline-block;
+  min-width: 100px;
+  text-align: center;
 }
 
 .estado.disponible {
@@ -150,18 +163,21 @@ button:hover {
   margin-top: 2rem;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.2rem;
+  flex-wrap: wrap;
 }
 
 .paginacion button {
   background-color: #3b82f6;
   border-radius: 8px;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   color: #fff;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  min-width: 110px;
+  user-select: none;
 }
 
 .paginacion button:hover:not(:disabled) {
@@ -170,11 +186,127 @@ button:hover {
 
 .paginacion button:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.45;
 }
 
 .paginacion span {
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 1.15rem;
   color: #222;
+  text-align: center;
+  min-width: 130px;
+  user-select: none;
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 1rem 1rem;
+    padding: 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.6rem;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .input-busqueda {
+    flex: 1 1 100%;
+    min-width: auto;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  button {
+    width: 100%;
+    min-width: auto;
+    font-size: 1.1rem;
+    padding: 0.7rem 0;
+  }
+
+  .tabla-gatos {
+    border: none;
+  }
+
+  .tabla-gatos thead {
+    display: none;
+  }
+
+  .tabla-gatos tbody tr {
+    display: block;
+    margin-bottom: 1.2rem;
+    background: #f8f9fa;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
+  }
+
+  .tabla-gatos tbody tr:hover {
+    background: #e0ebff;
+  }
+
+  .tabla-gatos td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #ddd;
+    color: #222;
+  }
+
+  .tabla-gatos td:last-child {
+    border-bottom: none;
+  }
+
+  .tabla-gatos td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #555;
+    flex-shrink: 0;
+    width: 110px;
+    text-transform: capitalize;
+  }
+
+  .acciones {
+    margin-top: 0.75rem;
+    display: flex;
+    gap: 0.6rem;
+    justify-content: flex-end;
+  }
+
+  .acciones button {
+    flex: 1;
+    font-size: 1rem;
+    padding: 0.6rem 0;
+    min-width: auto;
+    white-space: normal;
+  }
+
+  .estado {
+    min-width: 80px;
+    font-size: 0.9rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .paginacion {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .paginacion button {
+    width: 100%;
+    padding: 0.7rem 0;
+    font-size: 1.1rem;
+    min-width: auto;
+  }
+
+  .paginacion span {
+    font-size: 1.1rem;
+    text-align: center;
+  }
 }

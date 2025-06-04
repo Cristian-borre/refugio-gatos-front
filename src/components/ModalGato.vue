@@ -79,23 +79,28 @@ const form = reactive<Gato>({
   estado: '',
 })
 
+const resetearFormulario = () => {
+  form.nombre = ''
+  form.edad = 0
+  form.raza = ''
+  form.collar = ''
+  form.estado = ''
+}
+
 watch(
-  () => props.gato,
-  (nuevo) => {
-    if (nuevo) {
-      Object.assign(form, nuevo)
-    } else {
-      form.nombre = ''
-      form.edad = 0
-      form.raza = ''
-      form.collar = ''
-      form.estado = ''
+  [() => props.gato, () => props.modo],
+  ([nuevoGato, nuevoModo]) => {
+    if (nuevoModo === 'editar' && nuevoGato !== null) {
+      Object.assign(form, nuevoGato)
+    } else if (nuevoModo === 'crear' && nuevoGato === null) {
+      resetearFormulario()
     }
   },
   { immediate: true },
 )
 
 const cerrar = () => {
+  resetearFormulario()
   emit('cerrar')
 }
 
@@ -114,6 +119,7 @@ const guardar = () => {
   }
 
   try {
+    resetearFormulario()
     emit('guardado', { ...form })
   } catch (error) {
     emit('error', 'Error al guardar el gato')
