@@ -1,0 +1,125 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(33, 33, 33, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.modal-container {
+  background: #fff;
+  width: 400px;
+  max-width: 90vw;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  padding: 1.8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #222;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #3b82f6;
+}
+
+.modal-form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #444;
+}
+
+.modal-form input,
+.modal-form select {
+  margin-top: 0.3rem;
+  padding: 0.45rem 0.75rem;
+  font-size: 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.25s ease;
+  color: #222;
+}
+
+.modal-form input:focus,
+.modal-form select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 5px #3b82f6aa;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-guardar {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.btn-guardar:hover {
+  background-color: #2563eb;
+}
+
+.btn-cancelar {
+  background: transparent;
+  border: none;
+  color: #666;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.6rem 1.3rem;
+  border-radius: 8px;
+  transition: background-color 0.25s ease;
+}
+
+.btn-cancelar:hover {
+  background-color: #f3f4f6;
+}
+
+/* Fade transition */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
