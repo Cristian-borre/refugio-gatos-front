@@ -119,8 +119,8 @@ const guardar = () => {
   }
 
   try {
-    resetearFormulario()
     emit('guardado', { ...form })
+    resetearFormulario()
   } catch (error) {
     emit('error', 'Error al guardar el gato')
   }
